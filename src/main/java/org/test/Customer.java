@@ -21,7 +21,7 @@ public class Customer implements Comparable<Customer> {
 
     @Override
     public String toString() {
-        return "Customer{name='%s', age=%d}".formatted(name, age);
+        return "Customer {name='%s', age=%d}".formatted(name, age);
     }
 
     @Override

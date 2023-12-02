@@ -4,12 +4,13 @@ import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class FilterTest {
     public static void main(String[] args) {
         List<Customer> customers = new ArrayList<>();
         customers.add(new Customer("jane", 27));
-        customers.add(new Customer("jane", 27));
+        customers.add(new Customer("jane", 26));
         customers.add(new Customer("james", 25));
         customers.add(new Customer("luke", 33));
         customers.add(new Customer("tomas", 38));
@@ -28,6 +29,7 @@ public class FilterTest {
                 .sorted()
                 .forEach(System.out::println);
         */
+        /*
         List<String> names = customers.stream().map(Customer::getName).collect(Collectors.toList());
         //위 아래 코드는 같은 결과를 가진다.
         //List<String> names = customers.stream().map(Customer::getName).toList();
@@ -46,5 +48,9 @@ public class FilterTest {
         int[] arr = customers.stream().mapToInt(Customer::getAge).toArray();
         IntStream intStream = customers.stream().mapToInt(Customer::getAge);
         int ageCnt = ages.size();
+        */
+        List<Customer> janes = customers.stream().filter(customer -> "jane".equals(customer.getName())).distinct().sorted().toList();
+        System.out.println(janes.getClass());
+        janes.forEach(System.out::println);
     }
 }
